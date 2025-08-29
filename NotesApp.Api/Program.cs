@@ -1,19 +1,21 @@
 using Microsoft.EntityFrameworkCore;
+using NotesApp.Application.Interfaces;
 using NotesApp.Infrastructure.Data;
+using NotesApp.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<NotesDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("connString")));
 
+builder.Services.AddScoped<INoteRepository, NoteRepository>();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
