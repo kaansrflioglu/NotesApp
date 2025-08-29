@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using NotesApp.Domain.Entities;
 
 namespace NotesApp.Infrastructure.Data
 {
-    internal class NotesDbContext
+    public class NotesDbContext : DbContext
     {
+        public NotesDbContext(DbContextOptions<NotesDbContext> options)
+            : base(options) { }
+
+        public DbSet<Note> Notes { get; set; }
     }
 }
