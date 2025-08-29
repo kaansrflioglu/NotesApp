@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NotesApp.Domain.Entities;
 
 namespace NotesApp.Application.Interfaces
 {
-    internal interface INoteRepository
+    public interface INoteRepository
     {
+        Task<Note> GetByIdAsync(Guid id);
+        Task<IEnumerable<Note>> GetAllAsync();
+        Task AddAsync(Note note);
+        Task UpdateAsync(Note note);
+        Task DeleteAsync(Guid id);
     }
 }
