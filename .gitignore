@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 # Veritabanını alma
 NotesApp.Api/notes.db
+NotesApp.Api/notes.db-shm
+NotesApp.Api/notes.db-wal
