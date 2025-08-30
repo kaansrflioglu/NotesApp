@@ -1,0 +1,17 @@
+<h2>Add Note</h2>
+<app-note-form></app-note-form>
+<hr>
+
+<h2>Notes</h2>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let note of notes$ | async">
+    <h5>{{ note.title }}</h5>
+    <p>{{ note.content }}</p>
+    <button class="btn btn-sm btn-warning me-2" (click)="edit(note)">Edit</button>
+    <button class="btn btn-sm btn-danger" (click)="delete(note.id)">Delete</button>
+  </li>
+</ul>
+
+@if (selectedNote) {
+  <app-note-edit [noteToEdit]="selectedNote" (closed)="closeEdit()"></app-note-edit>
+}

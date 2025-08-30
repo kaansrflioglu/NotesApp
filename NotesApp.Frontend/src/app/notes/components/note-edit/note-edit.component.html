@@ -1,0 +1,21 @@
+<div *ngIf="noteToEdit" class="modal show d-block" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Note</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <input type="text" class="form-control" [(ngModel)]="noteToEdit.title" name="editTitle" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" [(ngModel)]="noteToEdit.content" name="editContent" required></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="updateNote()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
