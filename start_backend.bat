@@ -1,0 +1,3 @@
+@echo off
+echo [1] Backend baslatiliyor...
+start cmd /k "dotnet run --project NotesApp.Api"
